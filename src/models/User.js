@@ -1,5 +1,5 @@
 module.exports = (sequelize, DataTypes) => {
-  return sequelize.define('User', { 
+  const userModel = sequelize.define('User', { 
     id: {
       primaryKey: true,
       type: DataTypes.INTEGER,
@@ -14,4 +14,5 @@ module.exports = (sequelize, DataTypes) => {
     underscored: true,
     timestamps: false,
   });
+  return userModel;
 };

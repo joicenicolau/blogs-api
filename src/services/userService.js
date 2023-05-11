@@ -9,7 +9,9 @@ const createUser = (
   },
   ) => User.create({ displayName, email, password, image });
 
-const getUser = () => User.findAll();
+const getUser = () => User.findAll({
+  attributes: ['id', 'displayName', 'email', 'image'],
+});
 
 const getEmail = (email) => User.findOne({ where: { email } });
 

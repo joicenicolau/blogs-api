@@ -1,5 +1,11 @@
 const Service = require('../services/categoryService');
 
+const getAllCategory = async (_req, res) => {
+  const categories = await Service.getAllCategory();
+
+  return res.status(200).json(categories);
+};
+
 const createCategory = async (req, res) => {
   const { name } = req.body;
 
@@ -9,11 +15,12 @@ const createCategory = async (req, res) => {
       .json({ message: '"name" is required' });
   }
   
-  const user = await Service.createCategory({ name });
+  const category = await Service.createCategory({ name });
 
-  return res.status(201).json(user);
+  return res.status(201).json(category);
 };
 
 module.exports = {
   createCategory,
+  getAllCategory,
 };

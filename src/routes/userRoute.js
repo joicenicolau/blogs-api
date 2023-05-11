@@ -10,5 +10,6 @@ const apiRoutes = express.Router();
 apiRoutes.post('/login', login);
 apiRoutes.post('/user', validateUser, user.createUser);
 apiRoutes.get('/user', validateJwt, user.getAllUsers);
+apiRoutes.get('/user/:id', validateJwt, user.getByUserId);
 
 module.exports = apiRoutes;

@@ -8,7 +8,7 @@ module.exports = async (req, res, next) => {
   
     const data = verifyToken(authorization);
     req.payload = data;
-    console.log('data aqui', data);
+    // console.log('data aqui', data);
   
     next();
   } catch (error) {

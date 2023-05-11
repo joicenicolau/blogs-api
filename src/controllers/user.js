@@ -2,9 +2,24 @@ const { createToken } = require('../auth/authFunction');
 const Service = require('../services/userService');
 
 const getAllUsers = async (_req, res) => {
-    const users = await Service.getUser();
+    const users = await Service.getAllUsers();
 
     return res.status(200).json(users);
+};
+
+const getByUserId = async (req, res) => {
+  const { id } = req.params;
+
+  const userId = await Service.getByUserId(id);
+  console.log('userId aqui', userId);
+
+  if (!userId) {
+    return res
+      .status(404)
+      .json({ message: 'User does not exist' });
+  }
+
+  return res.status(200).json(userId);
 };
 
 const createUser = async (req, res) => {
@@ -30,4 +45,5 @@ const createUser = async (req, res) => {
 module.exports = {
   createUser,
   getAllUsers,
+  getByUserId,
 };

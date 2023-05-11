@@ -2,7 +2,7 @@ const jwt = require('jsonwebtoken');
 
 // regras de negócio
 const jwtConfig = {
-  expiresIn: '15m',
+  // expiresIn: '15m',
   algorithm: 'HS256',
 };
   

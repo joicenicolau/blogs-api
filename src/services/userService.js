@@ -1,5 +1,6 @@
 const { User } = require('../models');
 
+// pesquisa: https://dev.to/projectescape/the-comprehensive-sequelize-cheatsheet-3m1m#methods
 const createUser = (
   { 
     displayName, 

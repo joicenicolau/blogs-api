@@ -6,12 +6,7 @@ const getAllCategory = () => Category.findAll({
   attributes: ['id', 'name'],
 });
 
-// const getCategoryById = (id) => Category.findOne({ 
-//   where: { id },
-// });
-
 module.exports = {
   createCategory,
-  getAllCategory,
-  // getCategoryById, 
+  getAllCategory, 
 };

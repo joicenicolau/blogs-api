@@ -6,11 +6,7 @@ const post = require('../controllers/post');
 
 const apiRoutes = express.Router();
 
-apiRoutes.post(
-'/post', 
-validateJwt, 
-validatePost, 
-post.createPost,
-);
+apiRoutes.post('/post', validateJwt, validatePost, post.createPost);
+apiRoutes.get('/post', validateJwt, post.getAllPost);
 
 module.exports = apiRoutes;

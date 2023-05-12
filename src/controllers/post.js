@@ -6,7 +6,7 @@ const createPost = async (req, res) => {
   const { data: { id } } = req.payload;
 
   const validateId = await Service.validateCategoryById(categoryIds);
-  console.log('sou o validate', validateId);
+  // console.log('sou o validate', validateId);
 
   const notFound = validateId.some((v) => !v); 
   if (notFound) {
@@ -21,10 +21,17 @@ const createPost = async (req, res) => {
     updated: new Date(),
     published: new Date(),
   });
-  
+
   return res.status(201).json(post);
+};
+
+const getAllPost = async (_req, res) => {
+  const post = await Service.getAllPost();
+
+  return res.status(200).json(post);
 };
 
 module.exports = {
   createPost,
+  getAllPost,
 };

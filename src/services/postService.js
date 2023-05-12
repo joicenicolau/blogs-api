@@ -1,4 +1,4 @@
-const { BlogPost, Category, PostCategory, sequelize } = require('../models');
+const { BlogPost, Category, PostCategory, sequelize, User } = require('../models');
 
 const validateCategoryById = async (categoryIds) => {
   // console.log('linha4', categoryIds);
@@ -24,7 +24,16 @@ const createPost = async ({ title, content, userId, categoryIds, published, upda
   return result;
 };
 
+const getAllPost = (condition) => BlogPost.findAll({
+  where: condition,
+  include: [
+    { model: User, as: 'user', attributes: { exclude: ['password'] } },
+    { model: Category, as: 'categories', througt: { attributes: [] } },
+  ],
+});
+
 module.exports = {
   createPost,
   validateCategoryById,
+  getAllPost,
 };

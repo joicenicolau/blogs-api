@@ -11,7 +11,7 @@ const getByUserId = async (req, res) => {
   const { id } = req.params;
 
   const userId = await Service.getByUserId(id);
-  console.log('userId aqui', userId);
+  // console.log('userId aqui', userId);
 
   if (!userId) {
     return res

@@ -40,9 +40,18 @@ const getPostById = (id) => BlogPost.findOne({
   ],
 });
 
+const updatePostById = async ({ title, content, id }) => {
+  await BlogPost.update(
+  // atualiza o que ele pede(title e content) e cria a update.
+  { title, content, update: new Date() },
+  { where: { id } },
+);
+};
+
 module.exports = {
   createPost,
   validateCategoryById,
   getAllPost,
   getPostById,
+  updatePostById,
 };

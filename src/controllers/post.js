@@ -41,8 +41,32 @@ const getPostById = async (req, res) => {
   return res.status(200).json(result);
 };
 
+const updatePostById = async (req, res) => {
+  // console.log('sou o req', req);
+  const { id } = req.params;
+  const { title, content } = req.body;
+  // Somente o user que criou o blog post poderá editá-lo.
+  const { data } = req.payload;
+
+  // console.log('sou o id', id);
+  // console.log('sou a data', data);
+
+  const result = await Service.getPostById(id);
+  // console.log('sou o result', result.id);
+  // se o id for diferente do userId retorna o erro. 
+  if (data.id !== result.id) return res.status(401).json({ message: 'Unauthorized user' });
+
+  await Service.updatePostById({ title, content, id });
+  // console.log('sou o update', update);
+  // a função getPostById retorna o que preciso da table user e da table category. 
+  const update = await Service.getPostById(id);
+
+  return res.status(200).json(update);
+};
+
 module.exports = {
   createPost,
   getAllPost,
   getPostById,
+  updatePostById,
 };

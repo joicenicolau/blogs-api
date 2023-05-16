@@ -11,5 +11,6 @@ apiRoutes.post('/login', login);
 apiRoutes.post('/user', validateUser, user.createUser);
 apiRoutes.get('/user', validateJwt, user.getAllUsers);
 apiRoutes.get('/user/:id', validateJwt, user.getByUserId);
+apiRoutes.delete('/user/me', validateJwt, user.removeUser);
 
 module.exports = apiRoutes;

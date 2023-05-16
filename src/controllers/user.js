@@ -42,8 +42,16 @@ const createUser = async (req, res) => {
   return res.status(201).json({ token });
 };
 
+const removeUser = async (req, res) => {
+  const { data } = req.payload;
+
+  const isRemoved = await Service.removeUser(data.id);
+  return res.status(204).json(isRemoved);
+};
+
 module.exports = {
   createUser,
   getAllUsers,
   getByUserId,
+  removeUser,
 };

@@ -1,3 +1,4 @@
+const { Op } = require('sequelize');
 const { BlogPost, Category, PostCategory, sequelize, User } = require('../models');
 
 const validateCategoryById = async (categoryIds) => {
@@ -56,6 +57,25 @@ const removePost = async (id) => {
     return remove;
 };
 
+const serachPost = async (q) => {
+  console.log('q --', q);
+  const searchParams = `${q}%`;
+
+  // retornar um array de blogs post que contenham em seu título ou conteúdo (title, content);
+  // pesquisa: https://sequelize.org/docs/v6/core-concepts/model-querying-basics/#operators
+  const search = await BlogPost.findAll(
+    { where: { [Op.or]: { 
+      title: { [Op.like]: searchParams }, 
+      content: { [Op.like]: searchParams },
+    } },
+    include: [
+      { model: User, as: 'user', attributes: { exclude: ['password'] } },
+      { model: Category, as: 'categories', througt: { attributes: [] } },
+    ] }, 
+  );
+  return search;
+};
+
 module.exports = {
   createPost,
   validateCategoryById,
@@ -63,4 +83,5 @@ module.exports = {
   getPostById,
   updatePostById,
   removePost,
+  serachPost,
 };

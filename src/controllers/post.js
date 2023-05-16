@@ -84,10 +84,19 @@ const removePost = async (req, res) => {
   return res.status(204).json(isRemoved);
 };
 
+const serachPost = async (req, res) => {
+  const { q } = req.query;
+
+  const result = await Service.serachPost(q);
+
+  return res.status(200).json(result);
+};
+
 module.exports = {
   createPost,
   getAllPost,
   getPostById,
   updatePostById,
-  removePost, 
+  removePost,
+  serachPost,
 };

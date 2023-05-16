@@ -40,6 +40,7 @@ const getPostById = (id) => BlogPost.findOne({
   ],
 });
 
+// pesquisa: exc.12 do dia 6.1
 const updatePostById = async ({ title, content, id }) => {
   await BlogPost.update(
   // atualiza o que ele pede(title e content) e cria a update.
@@ -48,10 +49,18 @@ const updatePostById = async ({ title, content, id }) => {
 );
 };
 
+const removePost = async (id) => {
+  const remove = await BlogPost.destroy(
+    { where: { id } },
+    );
+    return remove;
+};
+
 module.exports = {
   createPost,
   validateCategoryById,
   getAllPost,
   getPostById,
   updatePostById,
+  removePost,
 };

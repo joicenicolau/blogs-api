@@ -11,5 +11,6 @@ apiRoutes.post('/post', validateJwt, validatePost, post.createPost);
 apiRoutes.get('/post', validateJwt, post.getAllPost);
 apiRoutes.get('/post/:id', validateJwt, post.getPostById);
 apiRoutes.put('/post/:id', validateJwt, validateUpdate, post.updatePostById);
+apiRoutes.delete('/post/:id', validateJwt, post.removePost);
 
 module.exports = apiRoutes;

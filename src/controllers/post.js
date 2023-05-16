@@ -41,6 +41,7 @@ const getPostById = async (req, res) => {
   return res.status(200).json(result);
 };
 
+// exc.13 do dia 6.1
 const updatePostById = async (req, res) => {
   // console.log('sou o req', req);
   const { id } = req.params;
@@ -64,9 +65,29 @@ const updatePostById = async (req, res) => {
   return res.status(200).json(update);
 };
 
+const removePost = async (req, res) => {
+  const { id } = req.params;
+  const { data } = req.payload;
+
+  const result = await Service.getPostById(id);
+  
+  if (!result) {
+    return res.status(404).json({ message: 'Post does not exist' });
+  }
+
+  if (data.id !== result.userId) {
+  return res
+    .status(401).json({ message: 'Unauthorized user' }); 
+  } 
+
+  const isRemoved = await Service.removePost(id);
+  return res.status(204).json(isRemoved);
+};
+
 module.exports = {
   createPost,
   getAllPost,
   getPostById,
   updatePostById,
+  removePost, 
 };

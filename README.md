@@ -1,10 +1,11 @@
-# :construction: README em construção ! :construction:
-<!-- Olá, Tryber!
-Esse é apenas um arquivo inicial para o README do seu projeto.
-É essencial que você preencha esse documento por conta própria, ok?
-Não deixe de usar nossas dicas de escrita de README de projetos, e deixe sua criatividade brilhar!
-:warning: IMPORTANTE: você precisa deixar nítido:
-- quais arquivos/pastas foram desenvolvidos por você; 
-- quais arquivos/pastas foram desenvolvidos por outra pessoa estudante;
-- quais arquivos/pastas foram desenvolvidos pela Trybe.
--->
+# Store Manager
+
+Este projeto foi desenvolvido ao final da Seção 6 de Back-end da [Trybe](https://www.betrybe.com/), onde estudei ORM (Object-Relational Mapping)- Interface da aplicação com o banco de dados, o Sequelize e Autenticação, utilizando o JWT (JSOn Web Token).
+
+## Descrição
+
+Blogs API é uma aplicação backend desenvolvi uma API Restful e um banco de dados para a produção de conteúdo para um blog, utilizando Sequelize e JWT. 
+
+## Como funciona
+
+Este projeto criei um banco de dados simulando um blog, onde os usuários podem ler, pesquisar, excluir e adicionar posts após efetuarem login (com autenticação JWT).

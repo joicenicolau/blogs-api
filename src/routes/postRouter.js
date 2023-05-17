@@ -1,9 +1,9 @@
 const express = require('express');
 const validateJwt = require('../middleware/validateJwt');
-const validatePost = require('../middleware/validatePost');
-const validatePostById = require('../middleware/validatePostById');
-const validateUpdate = require('../middleware/validateUpdate');
-const validateRemove = require('../middleware/validateRemove');
+const validatePost = require('../middleware/Post/validatePost');
+const validatePostById = require('../middleware/Post/validatePostById');
+const validateUpdate = require('../middleware/Post/validateUpdate');
+const validateRemove = require('../middleware/Post/validateRemove');
 
 const post = require('../controllers/post');
 

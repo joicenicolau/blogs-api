@@ -1,4 +1,4 @@
-const Service = require('../services/postService');
+const Service = require('../../services/postService');
 
 const validatePost = async (req, res, next) => {
   const { title, content, categoryIds } = req.body;

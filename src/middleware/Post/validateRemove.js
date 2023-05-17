@@ -1,4 +1,4 @@
-const Service = require('../services/postService');
+const Service = require('../../services/postService');
 
 const validateRemove = async (req, res, next) => {
   const { id } = req.params;

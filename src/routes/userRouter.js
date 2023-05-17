@@ -1,7 +1,7 @@
 const express = require('express');
 const validateJwt = require('../middleware/validateJwt');
-const validateUser = require('../middleware/validateUser');
-const validateUserById = require('../middleware/validateUserById');
+const validateUser = require('../middleware/User/validateUser');
+const validateUserById = require('../middleware/User/validateUserById');
 
 const user = require('../controllers/user');
 

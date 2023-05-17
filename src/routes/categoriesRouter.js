@@ -1,6 +1,6 @@
 const express = require('express');
 const validateJwt = require('../middleware/validateJwt');
-const validateCategory = require('../middleware/validateCategory');
+const validateCategory = require('../middleware/Category/validateCategory');
 
 const category = require('../controllers/category');
 

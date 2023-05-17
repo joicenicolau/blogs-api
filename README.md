@@ -1,4 +1,4 @@
-# Store Manager
+# Blogs API
 
 Este projeto foi desenvolvido ao final da Seção 6 de Back-end da [Trybe](https://www.betrybe.com/), onde estudei ORM (Object-Relational Mapping)- Interface da aplicação com o banco de dados, o Sequelize e Autenticação, utilizando o JWT (JSOn Web Token).
 

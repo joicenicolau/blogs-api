@@ -1,6 +1,5 @@
 const { User } = require('../models');
 
-// pesquisa: https://dev.to/projectescape/the-comprehensive-sequelize-cheatsheet-3m1m#methods
 const createUser = ({ 
     displayName, 
     email, 
@@ -16,7 +15,6 @@ const getEmail = (email) => User.findOne({ where: { email } });
 
 const getByUserId = (id) => User.findOne({ 
   where: { id }, 
-  // exclude - dica do Filipe Bueno
   attributes: { exclude: ['password'] },
 });
 

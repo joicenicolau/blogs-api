@@ -9,8 +9,6 @@ module.exports = (sequelize, DataTypes) => {
     timestamps: false,
   });
 
-
-  // Course - dia 6.3 - exercício 4
   postCategoryModel.associate = (models) => {
     models.BlogPost.belongsToMany(models.Category, {
       as: 'categories',

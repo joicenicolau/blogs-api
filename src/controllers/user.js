@@ -11,13 +11,6 @@ const getByUserId = async (req, res) => {
   const { id } = req.params;
 
   const userId = await Service.getByUserId(id);
-  // console.log('userId aqui', userId);
-
-  if (!userId) {
-    return res
-      .status(404)
-      .json({ message: 'User does not exist' });
-  }
 
   return res.status(200).json(userId);
 };
@@ -46,6 +39,7 @@ const removeUser = async (req, res) => {
   const { data } = req.payload;
 
   const isRemoved = await Service.removeUser(data.id);
+  
   return res.status(204).json(isRemoved);
 };
 

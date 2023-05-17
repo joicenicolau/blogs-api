@@ -1,6 +1,5 @@
 const jwt = require('jsonwebtoken');
 
-// regras de negócio
 const jwtConfig = {
   expiresIn: '5d',
   algorithm: 'HS256',
@@ -8,7 +7,6 @@ const jwtConfig = {
   
 const secret = process.env.JWT_SECRET || 'seusegredodetoken';
 
-// gera o token
 const createToken = (data) => jwt.sign({ data }, secret, jwtConfig);
 
 const verifyToken = (token) => jwt.verify(token, secret);

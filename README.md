@@ -9,3 +9,6 @@ Blogs API é uma aplicação backend desenvolvi uma API Restful e um banco de da
 ## Como funciona
 
 Este projeto criei um banco de dados simulando um blog, onde os usuários podem ler, pesquisar, excluir e adicionar posts após efetuarem login (com autenticação JWT).
+
+
+![Captura de tela de 2023-05-17 15-12-01](https://github.com/joicenicolau/blogs-api/assets/112522719/d3768370-a0dc-447a-96e5-ab179587717b)
